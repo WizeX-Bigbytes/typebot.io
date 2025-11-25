@@ -10,7 +10,7 @@ x-typebot-common: &typebot-common
   env_file: .env
   environment:
     REDIS_URL: redis://typebot-redis:6379
-    NEXT_PUBLIC_VIEWER_URL:  https://shawna-unhissed-frolicsomely.ngrok-free.dev
+    NEXT_PUBLIC_VIEWER_URL:  http://localhost:8081
     NEXTAUTH_URL: http://localhost:8080
     ENCRYPTION_SECRET: cbbb06aa75f33a18784ba954811f030f
     DATABASE_URL: postgresql://postgres:typebot@typebot-db:5432/typebot
