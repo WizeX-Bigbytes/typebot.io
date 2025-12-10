@@ -176,17 +176,5 @@ export const clientSideActionSchema = z.discriminatedUnion("type", [
       ref: "csaListenForWebhook",
       title: "Listen to webhook",
     }),
-  z
-    .object({
-      type: z.literal("agentHandoff"),
-      agentHandoff: z.object({
-        message: z.string().optional(),
-      }),
-    })
-    .merge(clientSideActionBaseSchema)
-    .openapi({
-      ref: "csaAgentHandoff",
-      title: "Agent Handoff",
-    }),
 ]);
 export type ClientSideAction = z.infer<typeof clientSideActionSchema>;

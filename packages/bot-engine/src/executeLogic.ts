@@ -5,7 +5,6 @@ import type { Prisma } from "@typebot.io/prisma/types";
 import type { SessionStore } from "@typebot.io/runtime-session-store";
 import type { SetVariableHistoryItem } from "@typebot.io/variables/schemas";
 import { executeAbTest } from "./blocks/logic/abTest/executeAbTest";
-import { executeAgentHandoff } from "./blocks/logic/agentHandoff/executeAgentHandoff";
 import { executeConditionBlock } from "./blocks/logic/condition/executeConditionBlock";
 import { executeJumpBlock } from "./blocks/logic/jump/executeJumpBlock";
 import { executeRedirect } from "./blocks/logic/redirect/executeRedirect";
@@ -56,7 +55,5 @@ export const executeLogic = async ({
       return executeWebhookBlock(block);
     case LogicBlockType.RETURN:
       return executeReturnBlock(state);
-    case LogicBlockType.AGENT_HANDOFF:
-      return executeAgentHandoff(block, { state, sessionStore });
   }
 };
