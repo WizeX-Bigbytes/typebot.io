@@ -7,30 +7,15 @@ export const executeAgentHandoff = (
   block: AgentHandoffBlock,
   { state }: { state: SessionState; sessionStore: SessionStore },
 ): ExecuteLogicResponse => {
-  // Create a special message that the backend will intercept
   const handoffMessage = block.options?.message || "Agent handoff requested by customer";
-  
-  // Use special marker that backend can detect
-  const messageWithMarker = `__AGENT_HANDOFF__:${handoffMessage}`;
 
   return {
     outgoingEdgeId: block.outgoingEdgeId,
-    messages: [
+    clientSideActions: [
       {
-        id: block.id,
-        type: "text" as const,
-        content: {
-          type: "richText" as const,
-          richText: [
-            {
-              type: "p" as const,
-              children: [
-                {
-                  text: messageWithMarker,
-                },
-              ],
-            },
-          ],
+        type: "agentHandoff" as const,
+        agentHandoff: {
+          message: handoffMessage,
         },
       },
     ],
