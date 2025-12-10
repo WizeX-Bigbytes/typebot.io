@@ -1,5 +1,6 @@
 import { z } from "@typebot.io/zod";
 import { abTestBlockSchemas } from "./abTest/schema";
+import { agentHandoffBlockSchema } from "./agentHandoff/schema";
 import { conditionBlockSchemas } from "./condition/schema";
 import { jumpBlockSchema } from "./jump/schema";
 import { redirectBlockSchema } from "./redirect/schema";
@@ -32,6 +33,7 @@ export const logicBlockV6Schema = z.discriminatedUnion("type", [
   conditionBlockSchemas.v6,
   abTestBlockSchemas.v6,
   webhookBlockSchema,
+  agentHandoffBlockSchema,
 ]);
 export type LogicBlockV6 = z.infer<typeof logicBlockV6Schema>;
 
