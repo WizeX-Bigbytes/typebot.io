@@ -7,28 +7,31 @@ export const executeAgentHandoff = (
   block: AgentHandoffBlock,
   { state }: { state: SessionState; sessionStore: SessionStore },
 ): ExecuteLogicResponse => {
-  // For WhatsApp context, return clientSideAction for middleware to handle
-  if (state.whatsApp) {
-    return {
-      outgoingEdgeId: block.outgoingEdgeId,
-      clientSideActions: [
-        {
-          type: "agentHandoff",
-          agentHandoff: {
-            message: block.options?.message || "Agent handoff requested by customer",
-          },
-        },
-      ],
-    };
-  }
+  // Create a special message that the backend will intercept
+  const handoffMessage = block.options?.message || "Agent handoff requested by customer";
+  
+  // Use special marker that backend can detect
+  const messageWithMarker = `__AGENT_HANDOFF__:${handoffMessage}`;
 
-  // For web context, this could trigger Chatwoot widget or similar
   return {
     outgoingEdgeId: block.outgoingEdgeId,
-    logs: [
+    messages: [
       {
-        status: "info",
-        description: "Agent handoff is only supported in WhatsApp context",
+        id: block.id,
+        type: "text" as const,
+        content: {
+          type: "richText" as const,
+          richText: [
+            {
+              type: "p" as const,
+              children: [
+                {
+                  text: messageWithMarker,
+                },
+              ],
+            },
+          ],
+        },
       },
     ],
   };
