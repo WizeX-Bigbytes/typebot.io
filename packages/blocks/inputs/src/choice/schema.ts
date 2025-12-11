@@ -21,6 +21,7 @@ export const choiceInputOptionsSchema = optionBaseSchema.merge(
 export const buttonItemSchemas = {
   v5: itemBaseSchemas.v5.extend({
     content: z.string().optional(),
+    description: z.string().optional(),
     value: z.string().optional(),
     displayCondition: z
       .object({
@@ -31,6 +32,7 @@ export const buttonItemSchemas = {
   }),
   v6: itemBaseSchemas.v6.extend({
     content: z.string().optional(),
+    description: z.string().optional(),
     value: z.string().optional(),
     displayCondition: z
       .object({

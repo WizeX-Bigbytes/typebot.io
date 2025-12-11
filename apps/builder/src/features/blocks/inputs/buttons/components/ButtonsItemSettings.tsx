@@ -70,6 +70,15 @@ export const ButtonsItemSettings = ({ item, onSettingsChange }: Props) => {
         )}
       </Field.Container>
       <Field.Root>
+        <Field.Label>{t("blocks.inputs.settings.description.label")}</Field.Label>
+        <DebouncedTextInputWithVariablesButton
+          defaultValue={item.description}
+          onValueChange={(description) =>
+            onSettingsChange({ ...item, description })
+          }
+        />
+      </Field.Root>
+      <Field.Root>
         <Field.Label>
           {t("blocks.inputs.internalValue.label")}
           <MoreInfoTooltip>
