@@ -37,7 +37,7 @@ export const StarterPlanPricingCard = ({
               <T
                 keyName="billing.pricingCard.heading"
                 params={{
-                  strong: <span className="text-orange-9">Starter</span>,
+                  strong: <span className="text-green-9">Starter</span>,
                 }}
               />
             </h2>

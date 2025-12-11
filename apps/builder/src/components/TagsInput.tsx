@@ -80,7 +80,7 @@ export const TagsInput = ({ items, placeholder, onValueChange }: Props) => {
 
   return (
     <div
-      className="flex flex-wrap gap-1 border py-1 px-2 rounded-md data-[focus=true]:outline-none data-[focus=true]:ring-orange-8 data-[focus=true]:ring-2 data-[focus=true]:border-transparent transition-[box-shadow,border-color]"
+      className="flex flex-wrap gap-1 border py-1 px-2 rounded-md data-[focus=true]:outline-none data-[focus=true]:ring-green-8 data-[focus=true]:ring-2 data-[focus=true]:border-transparent transition-[box-shadow,border-color]"
       onClick={() => inputRef.current?.focus()}
       onBlur={addItem}
       onKeyDown={handleKeyDown}
@@ -122,7 +122,7 @@ const Tag = ({
   <div
     className={cx(
       "flex items-center gap-0.5 border p-0.5 pl-2 rounded-sm max-w-full",
-      isFocused ? "border-orange-9" : undefined,
+      isFocused ? "border-green-9" : undefined,
     )}
   >
     <span className="text-sm line-clamp-1">{content}</span>

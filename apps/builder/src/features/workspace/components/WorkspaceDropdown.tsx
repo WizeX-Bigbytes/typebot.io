@@ -69,7 +69,7 @@ export const WorkspaceDropdown = ({
           <PlusSignIcon />
           {t("workspace.dropdown.newButton.label")}
         </Menu.Item>
-        <Menu.Item onClick={onLogoutClick} className="text-orange-9">
+        <Menu.Item onClick={onLogoutClick} className="text-green-9">
           <LogoutSquare02Icon />
           {t("workspace.dropdown.logoutButton.label")}
         </Menu.Item>

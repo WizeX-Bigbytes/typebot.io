@@ -26,7 +26,7 @@ export const PlanBadge = ({
     case Plan.OFFERED:
     case Plan.STARTER: {
       return (
-        <Badge colorScheme="orange" className={className}>
+        <Badge colorScheme="green" className={className}>
           Starter
         </Badge>
       );

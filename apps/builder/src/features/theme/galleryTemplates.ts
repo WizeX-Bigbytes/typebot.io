@@ -190,12 +190,12 @@ export const galleryTemplates: (Pick<ThemeTemplate, "id" | "name" | "theme"> & {
     name: "Bright Rain",
     theme: {
       chat: {
-        buttons: { backgroundColor: "#D27A7D" },
+        buttons: { backgroundColor: "#25D366" },
         guestBubbles: {
           color: "#303235",
           backgroundColor: "#FDDDBF",
           border: {
-            color: colors.orange.light[5],
+            color: colors.green.light[5],
           },
         },
       },

@@ -67,7 +67,7 @@ export const defaultHostBubbleBorderColor = colors.gray.light["6"];
 
 // Guest bubbles
 export const defaultGuestBubblesBackgroundColor = {
-  "6": "#FF8E21",
+  "6": "#25D366",
   "6.1": colors.green.light["9"],
 } as const;
 export const defaultGuestBubblesColor = colors.gray.light["1"];

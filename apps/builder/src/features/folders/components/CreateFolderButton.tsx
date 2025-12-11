@@ -31,7 +31,7 @@ export const CreateFolderButton = ({ isLoading, onClick }: Props) => {
         <div className="flex items-center gap-2">
           <p>{t("folders.createFolderButton.label")}</p>
           {isFreePlan(workspace) && (
-            <Badge colorScheme="orange">
+            <Badge colorScheme="green">
               <SquareLock01Icon />
             </Badge>
           )}

@@ -107,7 +107,7 @@ export const GeneralSettings = ({
         <Field.Label>
           {t("theme.sideMenu.global.typebotBrand")}{" "}
           {isWorkspaceFreePlan && (
-            <Badge colorScheme="orange">
+            <Badge colorScheme="green">
               <SquareLock01Icon />
             </Badge>
           )}

@@ -55,7 +55,7 @@ export const BlockCard = (
           <div className="flex items-center gap-2">
             <BlockLabel type={props.type} />
             {isFreePlan(workspace) && (
-              <Badge colorScheme="orange">
+              <Badge colorScheme="green">
                 <SquareLock01Icon />
               </Badge>
             )}

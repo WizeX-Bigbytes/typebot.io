@@ -98,7 +98,7 @@ export const BasicNumberInput = <HasVariable extends boolean>({
     >
       <NumberField.Group
         data-focus={isFocused}
-        className="data-[focus=true]:outline-none data-[focus=true]:ring-orange-8 data-[focus=true]:ring-2 data-[focus=true]:border-transparent rounded-md transition-[box-shadow,border-color]"
+        className="data-[focus=true]:outline-none data-[focus=true]:ring-green-8 data-[focus=true]:ring-2 data-[focus=true]:border-transparent rounded-md transition-[box-shadow,border-color]"
       >
         <NumberField.Decrement />
         <div className="relative flex-1">
