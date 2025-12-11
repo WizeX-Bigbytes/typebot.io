@@ -54,7 +54,7 @@ export const galleryTemplates: (Pick<ThemeTemplate, "id" | "name" | "theme"> & {
           color: colors.gray.dark[12],
         },
         buttons: {
-          backgroundColor: colors.orange.dark[9],
+          backgroundColor: colors.green.dark[9],
           color: colors.gray.dark[12],
         },
         inputs: {

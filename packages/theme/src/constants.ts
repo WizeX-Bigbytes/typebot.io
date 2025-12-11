@@ -31,7 +31,7 @@ export const defaultBackgroundColor = {
 export const defaultProgressBarIsEnabled = false;
 export const defaultProgressBarColor = {
   "6": "#e0edff",
-  "6.1": colors.orange.light["9"],
+  "6.1": colors.green.light["9"],
 } as const;
 export const defaultProgressBarBackgroundColor = {
   "6": colors.gray.light["3"],
@@ -68,26 +68,26 @@ export const defaultHostBubbleBorderColor = colors.gray.light["6"];
 // Guest bubbles
 export const defaultGuestBubblesBackgroundColor = {
   "6": "#FF8E21",
-  "6.1": colors.orange.light["9"],
+  "6.1": colors.green.light["9"],
 } as const;
 export const defaultGuestBubblesColor = colors.gray.light["1"];
 export const defaultGuestBubbleBorderThickness = {
   "6": 0,
   "6.1": 1,
 } as const;
-export const defaultGuestBubbleBorderColor = colors.orange.light["6"];
+export const defaultGuestBubbleBorderColor = colors.green.light["6"];
 
 // Buttons
 export const defaultButtonsBackgroundColor = {
   "6": "#0042DA",
-  "6.1": colors.orange.light["9"],
+  "6.1": colors.green.light["9"],
 } as const;
 export const defaultButtonsColor = colors.gray.light["1"];
 export const defaultButtonsBorderThickness = {
   "6": 0,
   "6.1": 1,
 } as const;
-export const defaultButtonsBorderColor = colors.orange.light["8"];
+export const defaultButtonsBorderColor = colors.green.light["8"];
 export const defaultButtonsLayout = "wrap";
 
 // Inputs
