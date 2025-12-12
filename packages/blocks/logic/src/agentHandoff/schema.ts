@@ -1,5 +1,5 @@
 import { z } from "@typebot.io/zod";
-import { blockBaseSchema } from "@typebot.io/blocks-core/schemas/blockBaseSchema";
+import { blockBaseSchema } from "@typebot.io/blocks-base/schemas";
 import { LogicBlockType } from "../constants";
 
 export const agentHandoffBlockSchema = blockBaseSchema.merge(
