@@ -137,6 +137,8 @@ export const BlockNodeContent = ({
       return <WebhookNodeContent options={block.options} />;
     case LogicBlockType.RETURN:
       return <ReturnBlockNodeContent />;
+    case LogicBlockType.AGENT:
+      return <AgentHandoffNodeContent />;
     case IntegrationBlockType.GOOGLE_SHEETS: {
       return <GoogleSheetsNodeContent options={block.options} />;
     }

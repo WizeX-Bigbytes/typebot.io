@@ -43,6 +43,7 @@ import { SetVariableIcon } from "@/features/blocks/logic/setVariable/components/
 import { TypebotLinkIcon } from "@/features/blocks/logic/typebotLink/components/TypebotLinkIcon";
 import { WaitIcon } from "@/features/blocks/logic/wait/components/WaitIcon";
 import { WebhookIcon } from "@/features/blocks/logic/webhook/components/WebhookIcon";
+import { AgentHandoffIcon } from "@/features/blocks/logic/agentHandoff/components/AgentHandoffIcon";
 import { ForgedBlockIcon } from "@/features/forge/ForgedBlockIcon";
 import { useThemeValue } from "@/hooks/useThemeValue";
 
@@ -159,6 +160,10 @@ export const BlockIcon = ({ type, className }: BlockIconProps): JSX.Element => {
     case LogicBlockType.WEBHOOK:
       return (
         <WebhookIcon className={cn("text-purple-9 stroke-2", className)} />
+      );
+    case LogicBlockType.AGENT:
+      return (
+        <AgentHandoffIcon className={cn("text-red-9 stroke-2", className)} />
       );
     case IntegrationBlockType.GOOGLE_SHEETS:
       return <GoogleSheetsLogo className={className} />;

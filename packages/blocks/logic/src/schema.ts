@@ -10,6 +10,8 @@ import { typebotLinkBlockSchema } from "./typebotLink/schema";
 import { waitBlockSchema } from "./wait/schema";
 import { webhookBlockSchema } from "./webhook/schema";
 
+import { agentHandoffBlockSchema } from "./agentHandoff/schema";
+
 const logicBlockSchemas = [
   scriptBlockSchema,
   redirectBlockSchema,
@@ -18,10 +20,17 @@ const logicBlockSchemas = [
   waitBlockSchema,
   jumpBlockSchema,
   returnBlockSchema,
+  agentHandoffBlockSchema,
 ] as const;
 
 export const logicBlockV5Schema = z.discriminatedUnion("type", [
-  ...logicBlockSchemas,
+  scriptBlockSchema,
+  redirectBlockSchema,
+  setVariableBlockSchema,
+  typebotLinkBlockSchema,
+  waitBlockSchema,
+  jumpBlockSchema,
+  returnBlockSchema,
   conditionBlockSchemas.v5,
   abTestBlockSchemas.v5,
 ]);
@@ -36,3 +45,7 @@ export const logicBlockV6Schema = z.discriminatedUnion("type", [
 export type LogicBlockV6 = z.infer<typeof logicBlockV6Schema>;
 
 export type LogicBlock = LogicBlockV5 | LogicBlockV6;
+
+export const defaultAgentHandoffOptions = {
+  message: "Agent handoff requested by customer",
+};

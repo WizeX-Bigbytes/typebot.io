@@ -7,6 +7,7 @@ import type {
 } from "@typebot.io/blocks-core/schemas/schema";
 import { InputBlockType } from "@typebot.io/blocks-inputs/constants";
 import { LogicBlockType } from "@typebot.io/blocks-logic/constants";
+import { defaultAgentHandoffOptions } from "@typebot.io/blocks-logic/schema";
 
 const parseDefaultItems = (type: BlockWithItems["type"]): ItemV6[] => {
   switch (type) {
@@ -21,11 +22,12 @@ const parseDefaultItems = (type: BlockWithItems["type"]): ItemV6[] => {
           paths: [{ id: createId() }],
         },
       ];
-    case LogicBlockType.AB_TEST:
       return [
         { id: createId(), path: "a" },
         { id: createId(), path: "b" },
       ];
+    default:
+      return [];
   }
 };
 
@@ -36,5 +38,8 @@ export const parseNewBlock = (type: BlockV6["type"]) =>
 
     ...(blockTypeHasItems(type)
       ? { items: parseDefaultItems(type) }
+      : undefined),
+    ...(type === LogicBlockType.AGENT
+      ? { options: defaultAgentHandoffOptions }
       : undefined),
   }) as BlockV6;

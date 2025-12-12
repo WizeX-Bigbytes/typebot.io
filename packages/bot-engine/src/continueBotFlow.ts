@@ -1,4 +1,5 @@
 import { TRPCError } from "@trpc/server";
+import { defaultAgentHandoffOptions } from "@typebot.io/blocks-logic/schema";
 import { BubbleBlockType } from "@typebot.io/blocks-bubbles/constants";
 import {
   isForgedBlockType,
@@ -104,6 +105,53 @@ export const continueBotFlow = async (
       code: "INTERNAL_SERVER_ERROR",
       message: "Group / block not found",
     });
+
+  if (block.type === LogicBlockType.AGENT) {
+    if (!block.options?.message)
+      return {
+        newSessionState,
+        messages: [],
+        logs: [],
+        clientSideActions: [],
+        visitedEdges: [],
+        setVariableHistory: [],
+      };
+    return {
+      newSessionState,
+      messages: [
+        {
+          id: block.id,
+          type: BubbleBlockType.TEXT,
+          content:
+            textBubbleContentFormat === "richText"
+              ? {
+                  type: "richText",
+                  richText: [
+                    {
+                      type: "p",
+                      children: [
+                        {
+                          text:
+                            block.options.message ??
+                            defaultAgentHandoffOptions.message,
+                        },
+                      ],
+                    },
+                  ],
+                }
+              : {
+                  type: "markdown",
+                  markdown:
+                    block.options.message ?? defaultAgentHandoffOptions.message,
+                },
+        },
+      ],
+      logs: [],
+      clientSideActions: [],
+      visitedEdges: [],
+      setVariableHistory: [],
+    };
+  }
 
   const nonInputProcessResult = await processNonInputBlock({
     block,
